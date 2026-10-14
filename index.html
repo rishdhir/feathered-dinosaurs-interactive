@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Feathered Dinosaurs — Liquid Glass</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="glass.css"></head>
+<body>
+<main>
+ <header><div><span class="eyebrow">IN OUR TIME · INTERACTIVE EDITION</span><h1>Feathered Dinosaurs</h1></div><span class="local"><span class="live-dot"></span> Liquid Glass <span class="local-note">Single-episode proof of concept</span></span></header>
+ <section id="stage" aria-label="Interactive fluid visualisation. Move your mouse or drag your finger to stir the fluid.">
+  <canvas id="fluid" width="1280" height="720" aria-label="Live fluid simulation"></canvas>
+  <div class="captions"><div class="series">IN OUR TIME / FEATHERED DINOSAURS</div><h2 id="title">Loading the story…</h2><p id="subtitle"></p></div>
+  <div class="stage-footer"><span>INTERPRETIVE FORMS · NOT SCIENTIFIC RECONSTRUCTIONS</span><span id="mode">Preparing simulation</span></div>
+  <div id="error" role="alert" hidden></div>
+ </section>
+ <div class="controls glass-surface">
+  <button id="play" disabled>Play podcast</button>
+  <label class="timeline"><span class="sr-only">Podcast position</span><input id="seek" type="range" min="0" max="566.533333" step="0.1" value="0" disabled></label>
+  <output id="time">0:00 / 9:27</output>
+  <button id="sound" aria-label="Mute podcast" disabled>Sound on</button>
+  <button id="restore" disabled>Return to story</button>
+  <button id="fullscreen" aria-label="Enter fullscreen">Fullscreen</button>
+ </div>
+ <div class="instructions"><p><strong>Move through the fluid.</strong> Sweep your cursor across the image to push and swirl it. Stop moving and it reforms around the story. The podcast keeps going.</p><div class="jump"><label for="chapters">Try a moment</label><select id="chapters"><option value="0">BBC introduction</option><option value="23">A different dinosaur</option><option value="48">Feather forms</option><option value="236">Archaeopteryx</option><option value="430">Moving continents</option><option value="530">Birds are dinosaurs</option></select></div></div>
+ <details><summary>About this experiment</summary><p>Browser-native WebGL2, adapted from the existing TouchDesigner shaders. Runs in your browser without a TouchDesigner connection. Audio begins at the BBC introduction. Mouse and touch interaction are experimental; the finished video is unchanged.</p><p>Liquid Glass controls use Deepika Rao’s MIT-licensed refraction module. Chromium renders edge refraction; other supported browsers receive a frosted-glass fallback. Simulation, audio and chapter timing are unchanged.</p><output id="stats" aria-live="off"></output></details>
+ <audio id="audio" preload="metadata" src="assets/audio.m4a"></audio>
+</main><script src="vendor/liquid-glass.js"></script><script type="module" src="app.js"></script><script type="module" src="glass-ui.js"></script></body></html>
